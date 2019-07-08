@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Account} from '../Account';
+import {BankAccount} from '../BankAccount';
 
 @Component({
   selector: 'app-list-of-accounts',
@@ -7,8 +7,8 @@ import {Account} from '../Account';
   styleUrls: ['./list-of-accounts.component.css']
 })
 export class ListOfAccountsComponent implements OnInit {
-  private accounts: Account[];
-  headElements = ['IDAccount', 'Balance', 'Currency', 'Name', 'Number account'];
+  private accounts: BankAccount[];
+  headElements = ['ID Konta', 'Saldo', 'Waluta', 'Nazwa konta', 'Numer konta', 'Edytuj', 'Usuń'];
   constructor() { }
 
   ngOnInit() {
@@ -16,5 +16,4 @@ export class ListOfAccountsComponent implements OnInit {
       {id: 1, balance: '1000', currency: 'PLN', name: 'Robert', numberAccount: '1234'}
     ];
   }
-
 }

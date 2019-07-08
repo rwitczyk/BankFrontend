@@ -9,13 +9,19 @@ import {FormsModule} from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import { ListOfAccountsComponent } from './list-of-accounts/list-of-accounts.component';
+import { MakeTransferComponent } from './make-transfer/make-transfer.component';
+import { AddAccountComponent } from './add-account/add-account.component';
+import { EditAccountComponent } from './edit-account/edit-account.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     NavbarComponent,
-    ListOfAccountsComponent
+    ListOfAccountsComponent,
+    MakeTransferComponent,
+    AddAccountComponent,
+    EditAccountComponent
   ],
   imports: [
     BrowserModule,

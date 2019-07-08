@@ -1,4 +1,4 @@
-export class Account {
+export class BankAccount {
 id: number;
 balance: string;
 currency: string;
