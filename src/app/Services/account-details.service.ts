@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {BankAccount} from './BankAccount';
+import {BankAccount} from '../Models/BankAccount';
 
 @Injectable({
   providedIn: 'root'
