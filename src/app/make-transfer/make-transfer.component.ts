@@ -12,4 +12,6 @@ export class MakeTransferComponent implements OnInit {
   ngOnInit() {
   }
 
+  createNewTransfer() {
+  }
 }

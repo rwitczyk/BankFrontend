@@ -12,4 +12,6 @@ export class AddAccountComponent implements OnInit {
   ngOnInit() {
   }
 
+  createNewAccount() {
+  }
 }

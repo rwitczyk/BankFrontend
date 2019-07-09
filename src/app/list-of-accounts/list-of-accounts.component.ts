@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {BankAccount} from '../BankAccount';
+import {BankAccountEntity} from '../BankAccountEntity';
 
 @Component({
   selector: 'app-list-of-accounts',
@@ -7,13 +7,16 @@ import {BankAccount} from '../BankAccount';
   styleUrls: ['./list-of-accounts.component.css']
 })
 export class ListOfAccountsComponent implements OnInit {
-  private accounts: BankAccount[];
-  headElements = ['ID Konta', 'Saldo', 'Waluta', 'Nazwa konta', 'Numer konta', 'Edytuj', 'Usuń'];
+  private accounts: BankAccountEntity[];
+  headElements = ['Saldo', 'Waluta', 'Nazwa konta', 'Numer konta', 'Edytuj', 'Usuń'];
   constructor() { }
 
   ngOnInit() {
     this.accounts = [
-      {id: 1, balance: '1000', currency: 'PLN', name: 'Robert', numberAccount: '1234'}
+      {balance: '1000', currency: 'PLN', name: 'Robert', numberAccount: '1234'}
     ];
+  }
+
+  editAccount(account: Account) {
   }
 }

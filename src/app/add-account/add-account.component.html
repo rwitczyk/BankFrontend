@@ -1,2 +1,24 @@
 <app-navbar></app-navbar>
-<p>add-account works!</p>
+<div class="container">
+  <br>
+  <h2>Wprowadź dane do swojego konta</h2>
+  <form>
+    <div class="form-group">
+      <label for="name">Nazwa konta</label>
+      <input type="text" class="form-control" id="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="currency">Waluta</label>
+      <select class="form-control" id="currency" required>
+        <option>PLN</option>
+        <option>EUR</option>
+        <option>GBP</option>
+        <option>USD</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success" (click)="createNewAccount()">Stwórz nowe konto</button>
+
+  </form>
+</div>

@@ -1,2 +1,25 @@
 <app-navbar></app-navbar>
-<p>make-transfer works!</p>
+<div class="container">
+  <br>
+  <h2>Wprowadź dane do przelewu</h2>
+  <form>
+    <div class="form-group">
+      <label for="fromNumberAccount">Z numeru konta</label>
+      <input type="text" class="form-control" id="fromNumberAccount" required>
+    </div>
+
+    <div class="form-group">
+      <label for="toNumberAccount">Na numer konta</label>
+      <input type="text" class="form-control" id="toNumberAccount" required>
+    </div>
+
+    <div class="form-group">
+      <label for="balance">Kwota przelewu</label>
+      <input type="text" class="form-control" id="balance" required>
+    </div>
+
+
+    <button type="submit" class="btn btn-success" (click)="createNewTransfer()">Wyślij przelew</button>
+
+  </form>
+</div>

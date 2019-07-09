@@ -11,7 +11,7 @@ export class HomePageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.hero = 'siema';
+    this.hero = 'Janusz';
   }
 
 }
