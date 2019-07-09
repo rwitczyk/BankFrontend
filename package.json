@@ -21,7 +21,6 @@
     "@angular/router": "~8.1.0",
     "angular-bootstrap-md": "latest",
     "bootstrap": "^4.3.1",
-    "ng-uikit-pro-standard": "latest",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.0.0-rc.1",
     "tslib": "^1.9.0",

@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BankAccountEntity} from '../BankAccountEntity';
-import {NavigationExtras, Router} from '@angular/router';
+import {Router} from '@angular/router';
+import {ListOfAccountsService} from '../list-of-accounts.service';
 
 @Component({
   selector: 'app-list-of-accounts',
@@ -11,12 +12,13 @@ export class ListOfAccountsComponent implements OnInit {
   private accounts: BankAccountEntity[];
   headElements = ['Saldo', 'Waluta', 'Nazwa konta', 'Numer konta', 'Edytuj', 'Usuń'];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private accountService: ListOfAccountsService) { }
 
   ngOnInit() {
-    this.accounts = [
-      {id: 1, balance: '1000', currency: 'PLN', name: 'Robert', numberAccount: '1234'}
-    ];
+    this.accountService.getDetails()
+      .subscribe((res: BankAccountEntity[]) => {
+        this.accounts = res;
+      });
   }
 
   accountDetails(id: number) {
