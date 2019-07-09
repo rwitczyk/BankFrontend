@@ -8,12 +8,12 @@
   </tr>
   </thead>
   <tbody>
-  <tr mdbTableCol *ngFor="let account of accounts">
+  <tr mdbTableCol *ngFor="let account of accounts" (click)="accountDetails(account.id)">
     <th scope="row">{{account.balance}}</th>
     <td>{{account.currency}}</td>
     <td>{{account.name}}</td>
     <td>{{account.numberAccount}}</td>
-    <td><button type="button" class="btn btn-primary" routerLink="/editAccount" (click)="editAccount(account)">Edit</button></td>
+    <td><button type="button" class="btn btn-primary" routerLink="/editAccount/{{account.id}}">Edit</button></td>
     <td><button type="button" class="btn btn-danger">Delete</button></td>
   </tr>
   </tbody>

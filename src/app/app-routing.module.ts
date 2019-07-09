@@ -5,6 +5,7 @@ import {ListOfAccountsComponent} from './list-of-accounts/list-of-accounts.compo
 import {MakeTransferComponent} from './make-transfer/make-transfer.component';
 import {AddAccountComponent} from './add-account/add-account.component';
 import {EditAccountComponent} from './edit-account/edit-account.component';
+import {AccountDetailsComponent} from './account-details/account-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'accounts', component: ListOfAccountsComponent},
   { path: 'newTransfer', component: MakeTransferComponent},
   { path: 'newAccount', component: AddAccountComponent},
-  { path: 'editAccount', component: EditAccountComponent}
+  { path: 'editAccount/:id', component: EditAccountComponent},
+  { path: 'detailsAccount/:id', component: AccountDetailsComponent}
 ];
 
 @NgModule({

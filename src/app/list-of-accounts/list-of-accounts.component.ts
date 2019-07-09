@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {BankAccountEntity} from '../BankAccountEntity';
+import {NavigationExtras, Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-of-accounts',
@@ -9,14 +10,16 @@ import {BankAccountEntity} from '../BankAccountEntity';
 export class ListOfAccountsComponent implements OnInit {
   private accounts: BankAccountEntity[];
   headElements = ['Saldo', 'Waluta', 'Nazwa konta', 'Numer konta', 'Edytuj', 'Usuń'];
-  constructor() { }
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.accounts = [
-      {balance: '1000', currency: 'PLN', name: 'Robert', numberAccount: '1234'}
+      {id: 1, balance: '1000', currency: 'PLN', name: 'Robert', numberAccount: '1234'}
     ];
   }
 
-  editAccount(account: Account) {
+  accountDetails(id: number) {
+    this.router.navigate(['/detailsAccount/' + id]);
   }
 }

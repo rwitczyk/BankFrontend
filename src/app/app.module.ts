@@ -12,6 +12,8 @@ import { ListOfAccountsComponent } from './list-of-accounts/list-of-accounts.com
 import { MakeTransferComponent } from './make-transfer/make-transfer.component';
 import { AddAccountComponent } from './add-account/add-account.component';
 import { EditAccountComponent } from './edit-account/edit-account.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,13 +23,15 @@ import { EditAccountComponent } from './edit-account/edit-account.component';
     ListOfAccountsComponent,
     MakeTransferComponent,
     AddAccountComponent,
-    EditAccountComponent
+    EditAccountComponent,
+    AccountDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     FormsModule,
+    HttpClientModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [],
