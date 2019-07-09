@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BankAccountEntity} from '../BankAccountEntity';
+import {BankAccount} from '../BankAccount';
 import {Router} from '@angular/router';
 import {ListOfAccountsService} from '../list-of-accounts.service';
 
@@ -9,14 +9,14 @@ import {ListOfAccountsService} from '../list-of-accounts.service';
   styleUrls: ['./list-of-accounts.component.css']
 })
 export class ListOfAccountsComponent implements OnInit {
-  private accounts: BankAccountEntity[];
+  private accounts: BankAccount[];
   headElements = ['Saldo', 'Waluta', 'Nazwa konta', 'Numer konta', 'Edytuj', 'Usuń'];
 
   constructor(private router: Router, private accountService: ListOfAccountsService) { }
 
   ngOnInit() {
     this.accountService.getDetails()
-      .subscribe((res: BankAccountEntity[]) => {
+      .subscribe((res: BankAccount[]) => {
         this.accounts = res;
       });
   }

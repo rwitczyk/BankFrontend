@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {BankAccountEntity} from '../BankAccountEntity';
+import {BankAccount} from '../BankAccount';
 import {AccountDetailsService} from '../account-details.service';
 
 @Component({
@@ -9,17 +9,16 @@ import {AccountDetailsService} from '../account-details.service';
   styleUrls: ['./account-details.component.css']
 })
 export class AccountDetailsComponent implements OnInit {
-  private account: BankAccountEntity;
+  private account: BankAccount;
   private id: string;
 
   constructor(private route: ActivatedRoute, private accountService: AccountDetailsService) {
   }
 
-
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.accountService.getDetails(this.id)
-      .subscribe((res: BankAccountEntity) => {
+      .subscribe((res: BankAccount) => {
         this.account = res;
 
         console.log(this.account.currency);

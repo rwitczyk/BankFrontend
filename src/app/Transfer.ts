@@ -1,4 +1,4 @@
-export class TransferEntity {
+export class Transfer {
 id: number;
 balance: string;
 createTransferDate: string;

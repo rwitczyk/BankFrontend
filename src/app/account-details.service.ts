@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {BankAccountEntity} from './BankAccountEntity';
+import {BankAccount} from './BankAccount';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,6 @@ export class AccountDetailsService {
 
   getDetails(id: string) {
     this.prepareHeader();
-    return this.http.get<BankAccountEntity>('/api/accounts/id/' + id, {headers: this.headersObject});
+    return this.http.get<BankAccount>('/api/accounts/id/' + id, {headers: this.headersObject});
   }
 }
