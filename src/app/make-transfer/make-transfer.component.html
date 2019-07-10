@@ -4,12 +4,16 @@
   <form>
     <div class="form-group">
       <label for="fromNumberAccount">Z numeru konta</label>
-      <input #fromNumberAccount type="text" class="form-control" id="fromNumberAccount" required>
+      <select #fromNumberAccount class="form-control" id="fromNumberAccount" required>
+        <option *ngFor="let number of listOfNumberAccounts">{{number}}</option>
+      </select>
     </div>
 
     <div class="form-group">
       <label for="toNumberAccount">Na numer konta</label>
-      <input #toNumberAccount type="text" class="form-control" id="toNumberAccount" required>
+      <select #toNumberAccount class="form-control" id="toNumberAccount" required>
+        <option *ngFor="let number of listOfNumberAccounts">{{number}}</option>
+      </select>
     </div>
 
     <div class="form-group">
