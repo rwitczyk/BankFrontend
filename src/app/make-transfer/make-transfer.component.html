@@ -4,21 +4,21 @@
   <form>
     <div class="form-group">
       <label for="fromNumberAccount">Z numeru konta</label>
-      <input type="text" class="form-control" id="fromNumberAccount" required>
+      <input #fromNumberAccount type="text" class="form-control" id="fromNumberAccount" required>
     </div>
 
     <div class="form-group">
       <label for="toNumberAccount">Na numer konta</label>
-      <input type="text" class="form-control" id="toNumberAccount" required>
+      <input #toNumberAccount type="text" class="form-control" id="toNumberAccount" required>
     </div>
 
     <div class="form-group">
       <label for="balance">Kwota przelewu</label>
-      <input type="text" class="form-control" id="balance" required>
+      <input #balance type="text" class="form-control" id="balance" required>
     </div>
 
 
-    <button type="submit" class="btn btn-success" (click)="createNewTransfer()">Wyślij przelew</button>
+    <button type="submit" class="btn btn-success" (click)="createNewTransfer(fromNumberAccount.value, toNumberAccount.value, balance.value)">Wyślij przelew</button>
 
   </form>
 </div>
