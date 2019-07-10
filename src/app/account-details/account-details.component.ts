@@ -26,13 +26,13 @@ export class AccountDetailsComponent implements OnInit {
       .subscribe((res: BankAccount) => {
         this.account = res;
 
-        console.log(this.account.currency);
+        // console.log(this.account.currency);
 
         this.listOfTransfers.getTransfers(this.account.numberAccount)
           .subscribe((resTransfers: Transfer[]) => {
             this.transfers = resTransfers;
 
-            console.log(this.transfers);
+            // console.log(this.transfers);
           });
       });
   }
