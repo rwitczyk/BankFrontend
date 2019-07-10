@@ -15,6 +15,7 @@ import {EditAccountComponent} from './edit-account/edit-account.component';
 import {AccountDetailsComponent} from './account-details/account-details.component';
 import {HttpClientModule} from '@angular/common/http';
 import {NgHttpLoaderModule} from 'ng-http-loader';
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,15 @@ import {NgHttpLoaderModule} from 'ng-http-loader';
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
     BrowserModule,
-    NgHttpLoaderModule.forRoot()
+    NgHttpLoaderModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      progressBar: true,
+      extendedTimeOut: 2000,
+      easeTime: 500,
+      resetTimeoutOnDuplicate: true
+    })
+
   ],
   providers: [],
   bootstrap: [AppComponent]

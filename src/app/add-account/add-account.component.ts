@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AddAccountService} from '../Services/add-account.service';
 import {BankAccount} from '../Models/BankAccount';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-account',
@@ -10,7 +11,7 @@ import {BankAccount} from '../Models/BankAccount';
 export class AddAccountComponent implements OnInit {
 
   private bankAccount: BankAccount;
-  constructor(private addAccountService: AddAccountService) { }
+  constructor(private addAccountService: AddAccountService, private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -23,7 +24,8 @@ export class AddAccountComponent implements OnInit {
     this.bankAccount.currency = currency;
     this.bankAccount.numberAccount = this.getRandomIntInclusive(1111, 9999);
     this.addAccountService.addAccount(this.bankAccount);
-    console.log('EEEELOOO');
+
+    this.toastr.success('Pomyślnie dodano konto');
   }
 
   getRandomIntInclusive(min, max) {
