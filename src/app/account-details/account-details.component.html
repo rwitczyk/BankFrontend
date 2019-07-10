@@ -20,4 +20,26 @@
       <h4>Numer konta</h4>
       <p>{{account.numberAccount}}</p>
     </div>
+
+  <br><br>
+  <h2>Lista przelewów:</h2>
+  <table mdbTable>
+    <thead>
+    <tr>
+      <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr mdbTableCol *ngFor="let transfer of transfers">
+      <th scope="row">{{transfer.toNumberAccount}}</th>
+      <td>{{transfer.balance}}</td>
+      <td>{{transfer.currency}}</td>
+      <td>{{transfer.createTransferDate}}</td>
+      <td>{{transfer.executeTransferDate}}</td>
+      <td>{{transfer.status}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+
 </div>

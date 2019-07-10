@@ -3,7 +3,7 @@ id: number;
 balance: string;
 createTransferDate: string;
 currency: string;
-execureTransferDate: string;
+executeTransferDate: string;
 fromNumberAccount: string;
 toNumberAccount: string;
 status: string;
