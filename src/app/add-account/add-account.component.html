@@ -1,16 +1,15 @@
-<app-navbar></app-navbar>
 <div class="container">
   <br>
   <h2>Wprowadź dane do swojego konta</h2>
   <form>
     <div class="form-group">
       <label for="name">Nazwa konta</label>
-      <input type="text" class="form-control" id="name" required>
+      <input #nameAccount type="text" class="form-control" id="name" required>
     </div>
 
     <div class="form-group">
       <label for="currency">Waluta</label>
-      <select class="form-control" id="currency" required>
+      <select #currency class="form-control" id="currency" required>
         <option>PLN</option>
         <option>EUR</option>
         <option>GBP</option>
@@ -18,7 +17,7 @@
       </select>
     </div>
 
-    <button type="submit" class="btn btn-success" (click)="createNewAccount()">Stwórz nowe konto</button>
+    <button type="submit" class="btn btn-success" (click)="createNewAccount(nameAccount.value, currency.value)">Stwórz nowe konto</button>
 
   </form>
 </div>

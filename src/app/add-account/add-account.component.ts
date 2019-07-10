@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AddAccountService} from '../Services/add-account.service';
+import {BankAccount} from '../Models/BankAccount';
 
 @Component({
   selector: 'app-add-account',
@@ -7,11 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddAccountComponent implements OnInit {
 
-  constructor() { }
+  private bankAccount: BankAccount;
+  constructor(private addAccountService: AddAccountService) { }
 
   ngOnInit() {
   }
 
-  createNewAccount() {
+  createNewAccount(nameOfAccount: string, currency: string) {
+    this.bankAccount = new BankAccount();
+
+    this.bankAccount.name = nameOfAccount;
+    this.bankAccount.balance = '0';
+    this.bankAccount.currency = currency;
+    this.bankAccount.numberAccount = this.getRandomIntInclusive(1111, 9999);
+    this.addAccountService.addAccount(this.bankAccount);
+    console.log('EEEELOOO');
+  }
+
+  getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 }

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {AccountDetailsService} from '../Services/account-details.service';
+import {EditAccountService} from '../Services/edit-account.service';
+import {BankAccount} from '../Models/BankAccount';
 
 @Component({
   selector: 'app-edit-account',
@@ -9,10 +12,23 @@ import {ActivatedRoute} from '@angular/router';
 export class EditAccountComponent implements OnInit {
 
   private id: string;
-  constructor(private route: ActivatedRoute) { }
+  private account: BankAccount;
+
+  constructor(private route: ActivatedRoute, private editAccountService: EditAccountService,
+              private accountDetailsService: AccountDetailsService) {
+  }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
+    this.accountDetailsService.getDetails(this.id)
+      .subscribe((res: BankAccount) => {
+        this.account = res;
+      });
   }
 
+  saveNewNameOfAccount(newName: string) {
+    this.account.name = newName;
+    console.log(this.account);
+    this.editAccountService.editAccount(this.account, this.id);
+  }
 }

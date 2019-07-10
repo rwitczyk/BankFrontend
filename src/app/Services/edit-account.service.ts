@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Transfer} from '../Models/Transfer';
+import {BankAccount} from '../Models/BankAccount';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ListOfTransfersService {
+export class EditAccountService {
   private headersObject: HttpHeaders;
 
   prepareHeader() {
@@ -19,8 +19,8 @@ export class ListOfTransfersService {
   constructor(private http: HttpClient) {
   }
 
-  getTransfers(numbertAccount: string) {
+  editAccount(account: BankAccount, id: string) {
     this.prepareHeader();
-    return this.http.get<Transfer[]>('/api/transfers/' + numbertAccount, {headers: this.headersObject});
+    this.http.post('/api/accounts/edit/name/' + id, account, {headers: this.headersObject}).subscribe();
   }
 }

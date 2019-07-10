@@ -19,7 +19,7 @@ export class ListOfAccountsService {
   constructor(private http: HttpClient) {
   }
 
-  getDetails() {
+  getListOfAccounts() {
     this.prepareHeader();
     return this.http.get<BankAccount[]>('/api/accounts', {headers: this.headersObject});
   }

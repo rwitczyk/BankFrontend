@@ -17,6 +17,7 @@ export class AccountDetailsComponent implements OnInit {
   headElements = ['Na numer konta', 'Kwota przelewu', 'Waluta', 'Data utworzenia przelewu', 'Data zaksiegowania przelewu', 'Status przelewu'];
 
   constructor(private route: ActivatedRoute, private accountService: AccountDetailsService, private listOfTransfers: ListOfTransfersService) {
+
   }
 
   ngOnInit() {
@@ -27,7 +28,7 @@ export class AccountDetailsComponent implements OnInit {
 
         console.log(this.account.currency);
 
-        this.listOfTransfers.getDetails(this.account.numberAccount)
+        this.listOfTransfers.getTransfers(this.account.numberAccount)
           .subscribe((resTransfers: Transfer[]) => {
             this.transfers = resTransfers;
 

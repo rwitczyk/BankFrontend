@@ -1,1 +1,15 @@
-<app-navbar></app-navbar>
+<div class="container">
+  <br>
+  <div class="form-group">
+    <h4>Nazwa konta: {{account.name}}</h4>
+    <br>
+    <form>
+      <div class="form-group">
+        <label for="name">Podaj nową nazwę</label>
+        <input #newName type="text" class="form-control" id="name" required>
+      </div>
+    </form>
+
+    <button type="submit" class="btn btn-success" (click)="saveNewNameOfAccount(newName.value)">Zapisz</button>
+  </div>
+</div>

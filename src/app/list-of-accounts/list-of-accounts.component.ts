@@ -15,7 +15,7 @@ export class ListOfAccountsComponent implements OnInit {
   constructor(private router: Router, private accountService: ListOfAccountsService) { }
 
   ngOnInit() {
-    this.accountService.getDetails()
+    this.accountService.getListOfAccounts()
       .subscribe((res: BankAccount[]) => {
         this.accounts = res;
       });
