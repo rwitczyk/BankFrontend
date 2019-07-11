@@ -1,26 +1,22 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {BankAccount} from '../Models/BankAccount';
+import {ToastrService} from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddAccountService {
-  private headersObject: HttpHeaders;
 
-  prepareHeader() {
-    this.headersObject = new HttpHeaders();
-    this.headersObject.append('Content-Type', 'application/json');
-    this.headersObject.append('Access-Control-Allow-Origin', '*');
-    this.headersObject.append('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    this.headersObject.append('Authorization', 'Basic ' + btoa('admin:password'));
-  }
-
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient, private toastr: ToastrService) {}
 
   addAccount(account: BankAccount) {
-    this.prepareHeader();
-    this.http.post('/api/accounts/add', account, {headers: this.headersObject}).subscribe();
+    this.http.post('/api/accounts/add', account).subscribe(
+      value => {
+        this.toastr.success('Pomyślnie dodano konto');
+      },
+      error => {
+        this.toastr.error('Błąd dodawania konta');
+      });
   }
 }

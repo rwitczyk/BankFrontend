@@ -13,9 +13,10 @@ import {MakeTransferComponent} from './make-transfer/make-transfer.component';
 import {AddAccountComponent} from './add-account/add-account.component';
 import {EditAccountComponent} from './edit-account/edit-account.component';
 import {AccountDetailsComponent} from './account-details/account-details.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NgHttpLoaderModule} from 'ng-http-loader';
 import {ToastrModule} from 'ngx-toastr';
+import {BasicAuthInterceptor} from '../BasicAuthInterceptor';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {ToastrModule} from 'ngx-toastr';
     })
 
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

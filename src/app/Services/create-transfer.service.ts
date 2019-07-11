@@ -1,26 +1,18 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Transfer} from '../Models/Transfer';
+import {ToastrService} from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CreateTransferService {
-  private headersObject: HttpHeaders;
 
-  prepareHeader() {
-    this.headersObject = new HttpHeaders();
-    this.headersObject.append('Content-Type', 'application/json');
-    this.headersObject.append('Access-Control-Allow-Origin', '*');
-    this.headersObject.append('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    this.headersObject.append('Authorization', 'Basic ' + btoa('admin:password'));
-  }
-
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient, private toastr: ToastrService) {}
 
   createTransfer(transfer: Transfer) {
-    this.prepareHeader();
-    this.http.post('/api/transfer/new', transfer, {headers: this.headersObject}).subscribe();
+    this.http.post('/api/transfer/new', transfer).subscribe(
+      value => {this.toastr.success('Wykonano przelew'); } ,
+      error => {this.toastr.error('Błąd wykonywania przelewu'); });
   }
 }

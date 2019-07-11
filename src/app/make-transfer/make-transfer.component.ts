@@ -20,8 +20,8 @@ export class MakeTransferComponent implements OnInit {
     this.listOfAccountsService.getListOfAccounts().subscribe((res: BankAccount[]) => {
       this.accounts = res;
       for (let i = 0; i < this.accounts.length; i++) {
-        this.listOfNumberAccounts[i] = this.accounts[i].numberAccount;
-        console.log(this.accounts[i].numberAccount);
+        this.listOfNumberAccounts[i] = this.accounts[i].numberAccount + ' [' + this.accounts[i].name + ']';
+     //   console.log(this.accounts[i].numberAccount);
       }
     });
   }

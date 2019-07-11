@@ -18,7 +18,12 @@
 
     <div class="form-group">
       <label for="balance">Kwota przelewu</label>
-      <input #balance type="text" class="form-control" id="balance" required>
+      <input #balance type="text" class="form-control" id="balance" required #name="ngModel" [(ngModel)]="balance.value" name="name">
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+        <div *ngIf="name.errors.required">
+          Balance is required.
+        </div>
+      </div>
     </div>
 
 
