@@ -6,7 +6,7 @@
     <div class="form-group">
       <label for="name">Nazwa konta</label>
       <input id="name" name="name" #name="ngModel" [(ngModel)]="nameAccount.value" #nameAccount type="text" class="form-control" required minlength="4">
-      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+      <div *ngIf="name.invalid" class="alert alert-danger">
 
         <div *ngIf="name.errors.required">
           Name is required.
@@ -21,10 +21,7 @@
     <div class="form-group">
       <label for="currency">Waluta</label>
       <select #currency class="form-control" id="currency" required>
-        <option>PLN</option>
-        <option>EUR</option>
-        <option>GBP</option>
-        <option>USD</option>
+        <option *ngFor="let currency of listOfCurrencies">{{currency}}</option>
       </select>
     </div>
 

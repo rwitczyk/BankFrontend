@@ -3,6 +3,7 @@ import {CreateTransferService} from '../Services/Transfer/create-transfer.servic
 import {Transfer} from '../Models/Transfer';
 import {ListOfAccountsService} from '../Services/Account/list-of-accounts.service';
 import {BankAccount} from '../Models/BankAccount';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-make-transfer',
@@ -12,8 +13,10 @@ import {BankAccount} from '../Models/BankAccount';
 export class MakeTransferComponent implements OnInit {
   private newTransfer: Transfer;
   private accounts: BankAccount[];
-  private listOfNumberAccounts: string[] = [];
-  constructor(private createTransferService: CreateTransferService, private listOfAccountsService: ListOfAccountsService) {
+  private listOfNumberAccounts = [];
+
+  constructor(private createTransferService: CreateTransferService, private listOfAccountsService: ListOfAccountsService,
+              private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -21,17 +24,22 @@ export class MakeTransferComponent implements OnInit {
       this.accounts = res;
       for (let i = 0; i < this.accounts.length; i++) {
         this.listOfNumberAccounts[i] = this.accounts[i].numberAccount;
-     //   console.log(this.accounts[i].numberAccount);
+        //   console.log(this.accounts[i].numberAccount);
       }
     });
   }
 
   createNewTransfer(fromNumberAccount: string, toNumberAccount: string, balance: string) {
-    this.newTransfer = new Transfer();
-    this.newTransfer.fromNumberAccount = fromNumberAccount;
-    this.newTransfer.toNumberAccount = toNumberAccount;
-    this.newTransfer.balance = balance;
-    this.createTransferService.createTransfer(this.newTransfer);
+    if (fromNumberAccount !== toNumberAccount) {
+      this.newTransfer = new Transfer();
+      this.newTransfer.fromNumberAccount = fromNumberAccount;
+      this.newTransfer.toNumberAccount = toNumberAccount;
+      this.newTransfer.balance = balance;
+      this.createTransferService.createTransfer(this.newTransfer);
+    }
+    else {
+      this.toastr.error('Nie mozesz wykonać przelewu na to samo konto!');
+    }
   }
 }
 

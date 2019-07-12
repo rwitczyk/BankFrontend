@@ -2,12 +2,20 @@
 <div class="container">
   <br>
   <div class="form-group">
-    <h4>Nazwa konta: {{account.name}}</h4>
+    <h4 *ngIf="account">Nazwa konta: {{account.name}}</h4>
     <br>
     <form>
       <div class="form-group">
         <label for="name">Podaj nową nazwę</label>
-        <input #newName type="text" class="form-control" id="name" required>
+        <input #newName #name="ngModel" [(ngModel)]="newName.value" type="text" class="form-control" id="name" name="name" required minlength="4">
+        <div *ngIf="name.invalid" class="alert alert-danger">
+          <div *ngIf="name.errors.required">
+            Name is required.
+          </div>
+          <div *ngIf="name.errors.minlength">
+            Name must be at least 4 characters long.
+          </div>
+        </div>
       </div>
     </form>
 

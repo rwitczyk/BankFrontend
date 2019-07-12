@@ -10,19 +10,22 @@ import {BankAccount} from '../Models/BankAccount';
 export class AddAccountComponent implements OnInit {
 
   private bankAccount: BankAccount;
+  private listOfCurrencies = ['PLN', 'USD', 'GBP', 'EUR'];
   constructor(private addAccountService: AddAccountService) { }
 
   ngOnInit() {
   }
 
   createNewAccount(nameOfAccount: string, currency: string) {
-    this.bankAccount = new BankAccount();
+    if (nameOfAccount.length > 3) {
+      this.bankAccount = new BankAccount();
 
-    this.bankAccount.name = nameOfAccount;
-    this.bankAccount.balance = '0';
-    this.bankAccount.currency = currency;
-    this.bankAccount.numberAccount = this.getRandomIntInclusive(1111, 9999);
-    this.addAccountService.addAccount(this.bankAccount);
+      this.bankAccount.name = nameOfAccount;
+      this.bankAccount.balance = '0';
+      this.bankAccount.currency = currency;
+      this.bankAccount.numberAccount = this.getRandomIntInclusive(1111, 9999);
+      this.addAccountService.addAccount(this.bankAccount);
+    }
   }
 
   getRandomIntInclusive(min, max) {

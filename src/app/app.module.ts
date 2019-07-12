@@ -6,7 +6,7 @@ import {HomePageComponent} from './home-page/home-page.component';
 import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
-import {NavbarComponent} from './navbar/navbar.component';
+import {NavbarComponent} from './navbar-logged-in/navbar.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {ListOfAccountsComponent} from './list-of-accounts/list-of-accounts.component';
 import {MakeTransferComponent} from './make-transfer/make-transfer.component';
@@ -18,6 +18,7 @@ import {NgHttpLoaderModule} from 'ng-http-loader';
 import {ToastrModule} from 'ngx-toastr';
 import {BasicAuthInterceptor} from '../BasicAuthInterceptor';
 import {LogInComponent} from './log-in/log-in.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {LogInComponent} from './log-in/log-in.component';
     FormsModule,
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
+    BrowserAnimationsModule,
     BrowserModule,
     NgHttpLoaderModule.forRoot(),
     ToastrModule.forRoot({

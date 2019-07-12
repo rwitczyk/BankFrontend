@@ -27,8 +27,10 @@ export class EditAccountComponent implements OnInit {
   }
 
   saveNewNameOfAccount(newName: string) {
-    this.account.name = newName;
-    console.log(this.account);
-    this.editAccountService.editAccount(this.account, this.id);
+    if (newName.length > 3) {
+      this.account.name = newName;
+      // console.log(this.account);
+      this.editAccountService.editAccount(this.account, this.id);
+    }
   }
 }
