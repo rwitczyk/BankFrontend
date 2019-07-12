@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {BankAccount} from '../Models/BankAccount';
 import {Router} from '@angular/router';
-import {ListOfAccountsService} from '../Services/list-of-accounts.service';
-import {DeleteAccountService} from '../Services/delete-account.service';
+import {ListOfAccountsService} from '../Services/Account/list-of-accounts.service';
+import {DeleteAccountService} from '../Services/Account/delete-account.service';
 import {ToastrService} from 'ngx-toastr';
 
 @Component({

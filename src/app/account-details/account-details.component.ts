@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {BankAccount} from '../Models/BankAccount';
-import {AccountDetailsService} from '../Services/account-details.service';
-import {ListOfTransfersService} from '../Services/list-of-transfers.service';
+import {AccountDetailsService} from '../Services/Account/account-details.service';
+import {ListOfTransfersService} from '../Services/Transfer/list-of-transfers.service';
 import {Transfer} from '../Models/Transfer';
 
 @Component({

@@ -17,6 +17,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {NgHttpLoaderModule} from 'ng-http-loader';
 import {ToastrModule} from 'ngx-toastr';
 import {BasicAuthInterceptor} from '../BasicAuthInterceptor';
+import {LogInComponent} from './log-in/log-in.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {BasicAuthInterceptor} from '../BasicAuthInterceptor';
     MakeTransferComponent,
     AddAccountComponent,
     EditAccountComponent,
-    AccountDetailsComponent
+    AccountDetailsComponent,
+    LogInComponent
   ],
   imports: [
     AppRoutingModule,

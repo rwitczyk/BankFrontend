@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {CreateTransferService} from '../Services/create-transfer.service';
+import {CreateTransferService} from '../Services/Transfer/create-transfer.service';
 import {Transfer} from '../Models/Transfer';
-import {ListOfAccountsService} from '../Services/list-of-accounts.service';
+import {ListOfAccountsService} from '../Services/Account/list-of-accounts.service';
 import {BankAccount} from '../Models/BankAccount';
 
 @Component({
@@ -20,7 +20,7 @@ export class MakeTransferComponent implements OnInit {
     this.listOfAccountsService.getListOfAccounts().subscribe((res: BankAccount[]) => {
       this.accounts = res;
       for (let i = 0; i < this.accounts.length; i++) {
-        this.listOfNumberAccounts[i] = this.accounts[i].numberAccount + ' [' + this.accounts[i].name + ']';
+        this.listOfNumberAccounts[i] = this.accounts[i].numberAccount;
      //   console.log(this.accounts[i].numberAccount);
       }
     });

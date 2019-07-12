@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Transfer} from '../Models/Transfer';
+import {Transfer} from '../../Models/Transfer';
 
 @Injectable({
   providedIn: 'root'

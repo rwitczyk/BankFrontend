@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {AccountDetailsService} from '../Services/account-details.service';
-import {EditAccountService} from '../Services/edit-account.service';
+import {AccountDetailsService} from '../Services/Account/account-details.service';
+import {EditAccountService} from '../Services/Account/edit-account.service';
 import {BankAccount} from '../Models/BankAccount';
 
 @Component({
