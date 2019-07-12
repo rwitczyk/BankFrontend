@@ -10,7 +10,7 @@ import {BankAccount} from '../Models/BankAccount';
 export class AddAccountComponent implements OnInit {
 
   private bankAccount: BankAccount;
-  private listOfCurrencies = ['PLN', 'USD', 'GBP', 'EUR'];
+  private listOfCurrencies = ['PLN', 'USD', 'GBP', 'EUR', 'CZK', 'CHF', 'ISK'];
   constructor(private addAccountService: AddAccountService) { }
 
   ngOnInit() {

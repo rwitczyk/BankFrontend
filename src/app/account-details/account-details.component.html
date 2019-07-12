@@ -7,24 +7,24 @@
     </div>
 
     <div class="form-group">
-      <h4>Saldo</h4>
+      <h5>Saldo</h5>
       <p>{{account.balance}}</p>
     </div>
 
     <div class="form-group">
-      <h4>Waluta</h4>
+      <h5>Waluta</h5>
       <p>{{account.currency}}</p>
     </div>
 
     <div class="form-group">
-      <h4>Numer konta</h4>
+      <h5>Numer konta</h5>
       <p>{{account.numberAccount}}</p>
     </div>
 
-  <br><br>
+  <br>
   <h2>Lista przelewów:</h2>
   <table mdbTable>
-    <thead>
+    <thead class="thead-light">
     <tr>
       <th *ngFor="let head of headElements" scope="col">{{head}} </th>
     </tr>
