@@ -4,6 +4,7 @@ import {Transfer} from '../Models/Transfer';
 import {ListOfAccountsService} from '../Services/Account/list-of-accounts.service';
 import {BankAccount} from '../Models/BankAccount';
 import {ToastrService} from 'ngx-toastr';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-make-transfer',
@@ -14,9 +15,10 @@ export class MakeTransferComponent implements OnInit {
   private newTransfer: Transfer;
   private accounts: BankAccount[];
   private listOfNumberAccounts = [];
+  private transferForm: FormGroup;
 
   constructor(private createTransferService: CreateTransferService, private listOfAccountsService: ListOfAccountsService,
-              private toastr: ToastrService) {
+              private toastr: ToastrService, private fb: FormBuilder) {
   }
 
   ngOnInit() {
@@ -27,18 +29,28 @@ export class MakeTransferComponent implements OnInit {
         //   console.log(this.accounts[i].numberAccount);
       }
     });
+
+    this.transferForm = this.fb.group({
+      balance: ['', [Validators.pattern('^[0-9]*([.][0-9]{1,2})?'), Validators.required]],
+      fromNumberAccount: [''],
+      toNumberAccount: ['']
+    });
   }
 
-  createNewTransfer(fromNumberAccount: string, toNumberAccount: string, balance: string) {
-    if (fromNumberAccount !== toNumberAccount) {
-      this.newTransfer = new Transfer();
-      this.newTransfer.fromNumberAccount = fromNumberAccount;
-      this.newTransfer.toNumberAccount = toNumberAccount;
-      this.newTransfer.balance = balance;
-      this.createTransferService.createTransfer(this.newTransfer);
+  createNewTransfer() {
+    if (this.transferForm.invalid) {
+      this.toastr.error('Źle wypełniony formularz'); // TODO
     }
     else {
-      this.toastr.error('Nie mozesz wykonać przelewu na to samo konto!');
+      if (this.transferForm.value.fromNumberAccount !== this.transferForm.value.toNumberAccount) {
+        this.newTransfer = new Transfer();
+        this.newTransfer.fromNumberAccount = this.transferForm.value.fromNumberAccount;
+        this.newTransfer.toNumberAccount = this.transferForm.value.toNumberAccount;
+        this.newTransfer.balance = this.transferForm.value.balance;
+        this.createTransferService.createTransfer(this.newTransfer);
+      } else {
+        this.toastr.error('Nie mozesz wykonać przelewu na to samo konto!');
+      }
     }
   }
 }
