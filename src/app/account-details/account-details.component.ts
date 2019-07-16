@@ -12,9 +12,11 @@ import {Transfer} from '../Models/Transfer';
 })
 export class AccountDetailsComponent implements OnInit {
   private account: BankAccount;
-  private transfers: Transfer[];
+  private transfersFromNumberAccount: Transfer[];
+  private transfersToNumberAccount: Transfer[];
   private id: string;
-  headElements = ['Na numer konta', 'Kwota przelewu', 'Waluta', 'Data utworzenia przelewu', 'Data zaksiegowania przelewu', 'Status przelewu'];
+  headElementsFrom = ['Na numer konta', 'Kwota przelewu', 'Waluta', 'Data utworzenia przelewu', 'Data zaksiegowania przelewu', 'Status przelewu'];
+  headElementsTo = ['Z numeru konta', 'Kwota przelewu', 'Waluta', 'Data utworzenia przelewu', 'Data zaksiegowania przelewu', 'Status przelewu'];
 
   constructor(private route: ActivatedRoute, private accountService: AccountDetailsService, private listOfTransfers: ListOfTransfersService) {
 
@@ -28,12 +30,17 @@ export class AccountDetailsComponent implements OnInit {
 
         // console.log(this.account.currency);
 
-        this.listOfTransfers.getTransfers(this.account.numberAccount)
-          .subscribe((resTransfers: Transfer[]) => {
-            this.transfers = resTransfers;
+        this.listOfTransfers.getTransfersFromNumberAccount(this.account.numberAccount)
+          .subscribe((resTransfersFromNumberAccount: Transfer[]) => {
+            this.transfersFromNumberAccount = resTransfersFromNumberAccount;
+          });
 
-            // console.log(this.transfers);
+        this.listOfTransfers.getTransfersToNumberAccount(this.account.numberAccount)
+          .subscribe((resTransfersToNumberAccount: Transfer[]) => {
+            this.transfersToNumberAccount = resTransfersToNumberAccount;
           });
       });
+
+
   }
 }

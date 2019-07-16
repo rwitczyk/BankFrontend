@@ -9,7 +9,11 @@ export class ListOfTransfersService {
 
   constructor(private http: HttpClient) {}
 
-  getTransfers(numbertAccount: string) {
-    return this.http.get<Transfer[]>('/api/transfers/' + numbertAccount);
+  getTransfersFromNumberAccount(numberAccount: string) {
+    return this.http.get<Transfer[]>('/api/transfers/from/' + numberAccount);
+  }
+
+  getTransfersToNumberAccount(numberAccount: string) {
+    return this.http.get<Transfer[]>('/api/transfers/to/' + numberAccount);
   }
 }

@@ -38,8 +38,8 @@ export class MakeTransferComponent implements OnInit {
   }
 
   createNewTransfer() {
-    if (this.transferForm.invalid) {
-      this.toastr.error('Źle wypełniony formularz'); // TODO
+    if (this.transferForm.get('balance').hasError('pattern') || this.transferForm.get('balance').hasError('required')) {
+      this.toastr.error('Źle wypełniony formularz');
     }
     else {
       if (this.transferForm.value.fromNumberAccount !== this.transferForm.value.toNumberAccount) {

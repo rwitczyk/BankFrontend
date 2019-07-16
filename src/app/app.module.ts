@@ -19,6 +19,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {BasicAuthInterceptor} from '../BasicAuthInterceptor';
 import {LogInComponent} from './log-in/log-in.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatTabsModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatTabsModule,
     BrowserModule,
     NgHttpLoaderModule.forRoot(),
     ToastrModule.forRoot({

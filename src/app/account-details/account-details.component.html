@@ -21,25 +21,52 @@
       <p>{{account.numberAccount}}</p>
     </div>
 
-  <br>
-  <h2>Lista przelewów:</h2>
-  <table mdbTable>
-    <thead class="thead-light">
-    <tr>
-      <th *ngFor="let head of headElements" scope="col">{{head}} </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr mdbTableCol *ngFor="let transfer of transfers">
-      <th scope="row">{{transfer.toNumberAccount}}</th>
-      <td>{{transfer.balance}}</td>
-      <td>{{transfer.currency}}</td>
-      <td>{{transfer.createTransferDate}}</td>
-      <td>{{transfer.executeTransferDate}}</td>
-      <td>{{transfer.status}}</td>
-    </tr>
-    </tbody>
-  </table>
+  <mat-tab-group animationDuration="10ms">
 
+    <mat-tab label="Przelewy wychodzące">
+      <br>
+      <h2>Lista przelewów wychodzących:</h2>
+      <table mdbTable>
+        <thead class="thead-light">
+        <tr>
+          <th *ngFor="let head of headElementsFrom" scope="col">{{head}} </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr mdbTable *ngFor="let transfer of transfersFromNumberAccount">
+          <th scope="row">{{transfer.toNumberAccount}}</th>
+          <td>{{transfer.balance}}</td>
+          <td>{{transfer.currency}}</td>
+          <td>{{transfer.createTransferDate}}</td>
+          <td>{{transfer.executeTransferDate}}</td>
+          <td>{{transfer.status}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+
+    <mat-tab label="Przelewy przychodzące">
+      <br>
+      <h2>Lista przelewów przychodzących:</h2>
+      <table mdbTable>
+        <thead class="thead-light">
+        <tr>
+          <th *ngFor="let head of headElementsTo" scope="col">{{head}} </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr mdbTable *ngFor="let transfer of transfersToNumberAccount">
+          <th scope="row">{{transfer.fromNumberAccount}}</th>
+          <td>{{transfer.balance}}</td>
+          <td>{{transfer.currency}}</td>
+          <td>{{transfer.createTransferDate}}</td>
+          <td>{{transfer.executeTransferDate}}</td>
+          <td>{{transfer.status}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+
+  </mat-tab-group>
 
 </div>
