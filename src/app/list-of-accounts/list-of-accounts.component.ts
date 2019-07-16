@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {BankAccount} from '../Models/BankAccount';
 import {Router} from '@angular/router';
 import {ListOfAccountsService} from '../Services/Account/list-of-accounts.service';
 import {DeleteAccountService} from '../Services/Account/delete-account.service';
 import {ToastrService} from 'ngx-toastr';
+import {MdbTableDirective} from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-list-of-accounts',
@@ -11,7 +12,10 @@ import {ToastrService} from 'ngx-toastr';
   styleUrls: ['./list-of-accounts.component.css']
 })
 export class ListOfAccountsComponent implements OnInit {
+  @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
   private accounts: BankAccount[];
+  previous: string;
+  searchText = '';
   headElements = ['Saldo', 'Waluta', 'Nazwa konta', 'Numer konta', 'Edytuj', 'Usuń'];
 
   constructor(private router: Router, private accountService: ListOfAccountsService, private deleteAccountService: DeleteAccountService,
@@ -21,7 +25,13 @@ export class ListOfAccountsComponent implements OnInit {
     this.accountService.getListOfAccounts()
       .subscribe((res: BankAccount[]) => {
         this.accounts = res;
+
+        this.mdbTable.setDataSource(this.accounts);
+        this.accounts = this.mdbTable.getDataSource();
+        this.previous = this.mdbTable.getDataSource();
       });
+
+
   }
 
   accountDetails(id: number) {
@@ -40,5 +50,25 @@ export class ListOfAccountsComponent implements OnInit {
         });
 
     window.location.reload();
+  }
+
+  @HostListener('input') oninput() {
+    this.searchItems();
+  }
+
+  searchItems() {
+    const prev = this.mdbTable.getDataSource();
+
+    if (!this.searchText) {
+      this.mdbTable.setDataSource(this.previous);
+      this.accounts = this.mdbTable.getDataSource();
+      console.log('siema');
+    }
+
+    if (this.searchText) {
+      this.accounts = this.mdbTable.searchLocalDataBy(this.searchText);
+      this.mdbTable.setDataSource(prev);
+      console.log('elo');
+    }
   }
 }

@@ -37,8 +37,8 @@
           <th scope="row">{{transfer.toNumberAccount}}</th>
           <td>{{transfer.balance}}</td>
           <td>{{transfer.currency}}</td>
-          <td>{{transfer.createTransferDate}}</td>
-          <td>{{transfer.executeTransferDate}}</td>
+          <td>{{transfer.createTransferDate | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+          <td>{{transfer.executeTransferDate | date:'dd/MM/yyyy HH:mm:ss'}}</td>
           <td>{{transfer.status}}</td>
         </tr>
         </tbody>
@@ -59,8 +59,8 @@
           <th scope="row">{{transfer.fromNumberAccount}}</th>
           <td>{{transfer.balance}}</td>
           <td>{{transfer.currency}}</td>
-          <td>{{transfer.createTransferDate}}</td>
-          <td>{{transfer.executeTransferDate}}</td>
+          <td>{{transfer.createTransferDate | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+          <td>{{transfer.executeTransferDate | date:'dd/MM/yyyy HH:mm:ss'}}</td>
           <td>{{transfer.status}}</td>
         </tr>
         </tbody>
