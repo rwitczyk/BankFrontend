@@ -1,8 +1,9 @@
 export class Transfer {
 id: number;
-balance: string;
+balanceBeforeChangeCurrency: string;
+balanceAfterChangeCurrency: string;
 createTransferDate: string;
-currency: string;
+currencyDestinationAccount: string;
 executeTransferDate: string;
 fromNumberAccount: string;
 toNumberAccount: string;

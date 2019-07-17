@@ -5,24 +5,24 @@
   <form [formGroup] = "transferForm">
     <div class="form-group">
       <label for="fromNumberAccount">Z numeru konta</label>
-      <select #fromNumberAccount class="form-control" id="fromNumberAccount" required formControlName="fromNumberAccount">
-        <option *ngFor="let number of listOfNumberAccounts">{{number}}</option>
+      <select class="form-control" id="fromNumberAccount" required formControlName="fromNumberAccount">
+        <option *ngFor="let number of listOfNumberAccounts" [value]="number">{{number}}</option>
       </select>
     </div>
 
     <div class="form-group">
       <label for="toNumberAccount">Na numer konta</label>
-      <select #toNumberAccount class="form-control" id="toNumberAccount" required formControlName="toNumberAccount">
-        <option *ngFor="let number of listOfNumberAccounts">{{number}}</option>
+      <select class="form-control" id="toNumberAccount" required formControlName="toNumberAccount">
+        <option *ngFor="let number of listOfNumberAccounts" [value]="number">{{number}}</option>
       </select>
     </div>
 
     <div class="form-group">
       <label for="balance">Kwota przelewu</label><br>
-      <input #balance class="form-control" id="balance" name="name" type="text" formControlName="balance">
-      <div *ngIf="transferForm.get('balance').invalid && (transferForm.get('balance').dirty || transferForm.get('balance').touched)">
-        <div *ngIf="transferForm.get('balance').hasError('pattern')" class="alert alert-danger">Wrong number</div>
-        <div *ngIf="transferForm.get('balance').hasError('required')" class="alert alert-danger">Balance is required</div>
+      <input class="form-control" id="balance" name="name" type="text" formControlName="balanceBeforeChangeCurrency">
+      <div *ngIf="transferForm.get('balanceBeforeChangeCurrency').invalid && (transferForm.get('balanceBeforeChangeCurrency').dirty || transferForm.get('balanceBeforeChangeCurrency').touched)">
+        <div *ngIf="transferForm.get('balanceBeforeChangeCurrency').hasError('pattern')" class="alert alert-danger">Wrong number</div>
+        <div *ngIf="transferForm.get('balanceBeforeChangeCurrency').hasError('required')" class="alert alert-danger">Balance is required</div>
       </div>
     </div>
 

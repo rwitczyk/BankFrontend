@@ -13,7 +13,8 @@ export class BasicAuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     request = request.clone({
       setHeaders: {
-        Authorization: 'Basic ' + btoa(this.login + ':' + this.password)
+        Authorization: 'Basic ' + btoa(this.login + ':' + this.password),
+        AccessControlAllowMethods: 'POST, GET, OPTIONS, PUT, DELETE'
       }
     });
 

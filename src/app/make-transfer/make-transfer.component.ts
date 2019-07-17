@@ -31,14 +31,14 @@ export class MakeTransferComponent implements OnInit {
     });
 
     this.transferForm = this.fb.group({
-      balance: ['', [Validators.pattern('^[0-9]*([.][0-9]{1,2})?'), Validators.required]],
+      balanceBeforeChangeCurrency: ['', [Validators.pattern('^[0-9]*([.][0-9]{1,2})?'), Validators.required]],
       fromNumberAccount: [''],
       toNumberAccount: ['']
     });
   }
 
   createNewTransfer() {
-    if (this.transferForm.get('balance').hasError('pattern') || this.transferForm.get('balance').hasError('required')) {
+    if (this.transferForm.get('balanceBeforeChangeCurrency').hasError('pattern') || this.transferForm.get('balanceBeforeChangeCurrency').hasError('required')) {
       this.toastr.error('Źle wypełniony formularz');
     }
     else {
@@ -46,7 +46,9 @@ export class MakeTransferComponent implements OnInit {
         this.newTransfer = new Transfer();
         this.newTransfer.fromNumberAccount = this.transferForm.value.fromNumberAccount;
         this.newTransfer.toNumberAccount = this.transferForm.value.toNumberAccount;
-        this.newTransfer.balance = this.transferForm.value.balance;
+        this.newTransfer.balanceAfterChangeCurrency = this.transferForm.value.balanceAfterChangeCurrency;
+        this.newTransfer.balanceBeforeChangeCurrency = this.transferForm.value.balanceBeforeChangeCurrency;
+        console.log(this.newTransfer);
         this.createTransferService.createTransfer(this.newTransfer);
       } else {
         this.toastr.error('Nie mozesz wykonać przelewu na to samo konto!');

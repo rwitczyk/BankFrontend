@@ -35,11 +35,12 @@
         <tbody>
         <tr mdbTable *ngFor="let transfer of transfersFromNumberAccount">
           <th scope="row">{{transfer.toNumberAccount}}</th>
-          <td>{{transfer.balance}}</td>
-          <td>{{transfer.currency}}</td>
-          <td>{{transfer.createTransferDate | date:'dd/MM/yyyy HH:mm:ss'}}</td>
-          <td>{{transfer.executeTransferDate | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+          <td>{{transfer.balanceBeforeChangeCurrency}}</td>
+          <td>{{transfer.currencyDestinationAccount}}</td>
+          <td>{{transfer.createTransferDate}}</td>
+          <td>{{transfer.executeTransferDate}}</td>
           <td>{{transfer.status}}</td>
+          <td *ngIf="transfer.status == 'CREATED'"><button mat-button color="accent" (click)="cancelTransfer(transfer)">Anuluj</button></td>
         </tr>
         </tbody>
       </table>
@@ -57,11 +58,12 @@
         <tbody>
         <tr mdbTable *ngFor="let transfer of transfersToNumberAccount">
           <th scope="row">{{transfer.fromNumberAccount}}</th>
-          <td>{{transfer.balance}}</td>
-          <td>{{transfer.currency}}</td>
+          <td>{{transfer.balanceAfterChangeCurrency}}</td>
+          <td>{{transfer.currencyDestinationAccount}}</td>
           <td>{{transfer.createTransferDate | date:'dd/MM/yyyy HH:mm:ss'}}</td>
           <td>{{transfer.executeTransferDate | date:'dd/MM/yyyy HH:mm:ss'}}</td>
           <td>{{transfer.status}}</td>
+          <td *ngIf="transfer.status == 'CREATED'"><button mat-button color="accent" (click)="cancelTransfer(transfer)">Anuluj</button></td>
         </tr>
         </tbody>
       </table>

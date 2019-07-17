@@ -4,6 +4,7 @@ import {BankAccount} from '../Models/BankAccount';
 import {AccountDetailsService} from '../Services/Account/account-details.service';
 import {ListOfTransfersService} from '../Services/Transfer/list-of-transfers.service';
 import {Transfer} from '../Models/Transfer';
+import {CancelTransferService} from '../Services/Transfer/cancel-transfer.service';
 
 @Component({
   selector: 'app-account-details',
@@ -15,10 +16,13 @@ export class AccountDetailsComponent implements OnInit {
   private transfersFromNumberAccount: Transfer[];
   private transfersToNumberAccount: Transfer[];
   private id: string;
-  headElementsFrom = ['Na numer konta', 'Kwota przelewu', 'Waluta', 'Data utworzenia przelewu', 'Data zaksiegowania przelewu', 'Status przelewu'];
-  headElementsTo = ['Z numeru konta', 'Kwota przelewu', 'Waluta', 'Data utworzenia przelewu', 'Data zaksiegowania przelewu', 'Status przelewu'];
+  headElementsFrom = ['Na numer konta', 'Kwota przelewu', 'Waluta',
+    'Data utworzenia przelewu', 'Data zaksiegowania przelewu', 'Status przelewu', ''];
+  headElementsTo = ['Z numeru konta', 'Kwota przelewu', 'Waluta',
+    'Data utworzenia przelewu', 'Data zaksiegowania przelewu', 'Status przelewu', ''];
 
-  constructor(private route: ActivatedRoute, private accountService: AccountDetailsService, private listOfTransfers: ListOfTransfersService) {
+  constructor(private route: ActivatedRoute, private accountService: AccountDetailsService, private listOfTransfers: ListOfTransfersService,
+              private cancelTransferService: CancelTransferService) {
 
   }
 
@@ -28,7 +32,7 @@ export class AccountDetailsComponent implements OnInit {
       .subscribe((res: BankAccount) => {
         this.account = res;
 
-        // console.log(this.account.currency);
+        // console.log(this.account.currencyDestinationAccount);
 
         this.listOfTransfers.getTransfersFromNumberAccount(this.account.numberAccount)
           .subscribe((resTransfersFromNumberAccount: Transfer[]) => {
@@ -42,5 +46,9 @@ export class AccountDetailsComponent implements OnInit {
       });
 
 
+  }
+
+  cancelTransfer(transfer: Transfer) {
+  this.cancelTransferService.cancelTransfer(transfer);
   }
 }

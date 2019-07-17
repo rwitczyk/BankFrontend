@@ -7,7 +7,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NavbarComponent} from './navbar-logged-in/navbar.component';
-import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {ButtonsModule, InputsModule, MDBBootstrapModule, ModalModule, WavesModule} from 'angular-bootstrap-md';
 import {ListOfAccountsComponent} from './list-of-accounts/list-of-accounts.component';
 import {MakeTransferComponent} from './make-transfer/make-transfer.component';
 import {AddAccountComponent} from './add-account/add-account.component';
@@ -19,7 +19,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {BasicAuthInterceptor} from '../BasicAuthInterceptor';
 import {LogInComponent} from './log-in/log-in.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatTabsModule} from '@angular/material';
+import {MatButtonModule, MatTabsModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -43,6 +43,7 @@ import {MatTabsModule} from '@angular/material';
     ReactiveFormsModule,
     MatTabsModule,
     BrowserModule,
+    ModalModule, WavesModule, InputsModule, ButtonsModule,
     NgHttpLoaderModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 3000,
@@ -50,7 +51,8 @@ import {MatTabsModule} from '@angular/material';
       extendedTimeOut: 2000,
       easeTime: 500,
       resetTimeoutOnDuplicate: true
-    })
+    }),
+    MatButtonModule
 
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true}
