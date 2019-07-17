@@ -14,14 +14,14 @@
     <th *ngFor="let head of headElements" scope="col">{{head}} </th>
   </tr>
   </thead>
-  <tbody>
+  <tbody id="#bodyList">
   <tr *ngFor="let account of accounts" (click)="accountDetails(account.id)">
     <th scope="row">{{account.balance}}</th>
     <td>{{account.currency}}</td>
     <td>{{account.name}}</td>
     <td>{{account.numberAccount}}</td>
-    <td><button mat-stroked-button color="primary" routerLink="/editAccount/{{account.id}}">Edit</button></td>
-    <td><button mat-stroked-button color="warn" (click)="openDialog(account.id)">Delete</button></td>
+    <td><button mat-stroked-button color="primary" routerLink="/editAccount/{{account.id}}">Edytuj</button></td>
+    <td><button mat-stroked-button color="warn" (click)="openDialog(account.id)">Usuń</button></td>
   </tr>
   </tbody>
 </table>
