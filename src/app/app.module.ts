@@ -19,7 +19,8 @@ import {ToastrModule} from 'ngx-toastr';
 import {BasicAuthInterceptor} from '../BasicAuthInterceptor';
 import {LogInComponent} from './log-in/log-in.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatTabsModule} from '@angular/material';
+import {MatButtonModule, MatDialogModule, MatTabsModule} from '@angular/material';
+import {DialogComponent} from './list-of-accounts/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {MatButtonModule, MatTabsModule} from '@angular/material';
     AddAccountComponent,
     EditAccountComponent,
     AccountDetailsComponent,
-    LogInComponent
+    LogInComponent,
+    DialogComponent
   ],
   imports: [
     AppRoutingModule,
@@ -42,6 +44,7 @@ import {MatButtonModule, MatTabsModule} from '@angular/material';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatTabsModule,
+    MatDialogModule,
     BrowserModule,
     ModalModule, WavesModule, InputsModule, ButtonsModule,
     NgHttpLoaderModule.forRoot(),
@@ -53,8 +56,8 @@ import {MatButtonModule, MatTabsModule} from '@angular/material';
       resetTimeoutOnDuplicate: true
     }),
     MatButtonModule
-
   ],
+  entryComponents: [DialogComponent],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]

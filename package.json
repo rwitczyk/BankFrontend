@@ -25,6 +25,7 @@
     "angular-authentication-service": "^1.1.8",
     "angular-bootstrap-md": "latest",
     "bootstrap": "^4.3.1",
+    "mdbootstrap": "^4.8.5",
     "ng-http-loader": "^5.1.0",
     "ngx-auth": "^5.1.0",
     "ngx-toastr": "^10.0.4",

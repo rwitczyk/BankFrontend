@@ -20,8 +20,10 @@
     <td>{{account.currency}}</td>
     <td>{{account.name}}</td>
     <td>{{account.numberAccount}}</td>
-    <td><button type="button" class="btn btn-primary" routerLink="/editAccount/{{account.id}}">Edit</button></td>
-    <td><button type="button" class="btn btn-danger" (click)="deleteAccount(account.id)">Delete</button></td>
+    <td><button mat-stroked-button color="primary" routerLink="/editAccount/{{account.id}}">Edit</button></td>
+    <td><button mat-stroked-button color="warn" (click)="openDialog(account.id)">Delete</button></td>
   </tr>
   </tbody>
 </table>
+
+<!--(click)="deleteAccount(account.id)-->
