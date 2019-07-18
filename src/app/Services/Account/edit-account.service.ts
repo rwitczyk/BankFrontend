@@ -13,6 +13,6 @@ export class EditAccountService {
   editAccount(account: BankAccount, id: string) {
     this.http.post('/api/accounts/edit/name/' + id, account).subscribe(
       value => {this.toastr.success('Pomyślnie edytowano konto'); } ,
-      error => {this.toastr.error('Błąd edycji konta'); });
+      error => {this.toastr.error(error.error.message); });
   }
 }

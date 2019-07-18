@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AddAccountService} from '../Services/Account/add-account.service';
 import {BankAccount} from '../Models/BankAccount';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-account',
@@ -11,7 +12,7 @@ export class AddAccountComponent implements OnInit {
 
   private bankAccount: BankAccount;
   private listOfCurrencies = ['PLN', 'USD', 'GBP', 'EUR', 'CZK', 'CHF', 'ISK'];
-  constructor(private addAccountService: AddAccountService) { }
+  constructor(private addAccountService: AddAccountService, private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -25,6 +26,9 @@ export class AddAccountComponent implements OnInit {
       this.bankAccount.currency = currency;
       this.bankAccount.numberAccount = this.getRandomIntInclusive(1111, 9999);
       this.addAccountService.addAccount(this.bankAccount);
+    }
+    else{
+      this.toastr.error('Źle wypełniony formularz');
     }
   }
 

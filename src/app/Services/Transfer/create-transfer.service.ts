@@ -13,6 +13,6 @@ export class CreateTransferService {
   createTransfer(transfer: Transfer) {
     this.http.post('/api/transfer/new', transfer).subscribe(
       value => {this.toastr.success('Wykonano przelew'); } ,
-      error => {this.toastr.error('Brak środków na koncie lub konto nie istnieje'); });
+      error => {this.toastr.error(error.error.message); });
   }
 }

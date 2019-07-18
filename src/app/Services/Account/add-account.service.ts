@@ -16,7 +16,7 @@ export class AddAccountService {
         this.toastr.success('Pomyślnie dodano konto');
       },
       error => {
-        this.toastr.error('Błąd dodawania konta');
+        this.toastr.error(error.error.message);
       });
   }
 }
