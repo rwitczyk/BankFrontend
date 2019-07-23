@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {AccountDetailsService} from '../Services/Account/account-details.service';
 import {EditAccountService} from '../Services/Account/edit-account.service';
 import {BankAccount} from '../Models/BankAccount';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-account',
@@ -15,7 +16,7 @@ export class EditAccountComponent implements OnInit {
   private account: BankAccount;
 
   constructor(private route: ActivatedRoute, private editAccountService: EditAccountService,
-              private accountDetailsService: AccountDetailsService) {
+              private accountDetailsService: AccountDetailsService, private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -31,6 +32,9 @@ export class EditAccountComponent implements OnInit {
       this.account.name = newName;
       // console.log(this.account);
       this.editAccountService.editAccount(this.account, this.id);
+    }
+    else {
+      this.toastr.error('Źle wypełniony formularz!');
     }
   }
 }

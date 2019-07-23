@@ -36,7 +36,7 @@
         <tr mdbTable *ngFor="let transfer of transfersFromNumberAccount">
           <th scope="row">{{transfer.toNumberAccount}}</th>
           <td>{{transfer.balanceBeforeChangeCurrency}}</td>
-          <td>{{transfer.currencyDestinationAccount}}</td>
+          <td>{{account.currency}}</td>
           <td>{{transfer.createTransferDate}}</td>
           <td>{{transfer.executeTransferDate}}</td>
           <td>{{transfer.status}}</td>
