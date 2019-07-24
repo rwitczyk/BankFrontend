@@ -21,6 +21,7 @@ import {LogInComponent} from './log-in/log-in.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatDialogModule, MatTabsModule} from '@angular/material';
 import {DialogComponent} from './list-of-accounts/dialog/dialog.component';
+import {ShowUsersFromMagdaComponent} from './show-users-from-magda/show-users-from-magda.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {DialogComponent} from './list-of-accounts/dialog/dialog.component';
     EditAccountComponent,
     AccountDetailsComponent,
     LogInComponent,
-    DialogComponent
+    DialogComponent,
+    ShowUsersFromMagdaComponent
   ],
   imports: [
     AppRoutingModule,

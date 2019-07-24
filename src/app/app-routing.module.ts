@@ -7,6 +7,7 @@ import {AddAccountComponent} from './add-account/add-account.component';
 import {EditAccountComponent} from './edit-account/edit-account.component';
 import {AccountDetailsComponent} from './account-details/account-details.component';
 import {LogInComponent} from './log-in/log-in.component';
+import {ShowUsersFromMagdaComponent} from './show-users-from-magda/show-users-from-magda.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'newTransfer', component: MakeTransferComponent},
   { path: 'newAccount', component: AddAccountComponent},
   { path: 'editAccount/:id', component: EditAccountComponent},
-  { path: 'detailsAccount/:id', component: AccountDetailsComponent}
+  { path: 'detailsAccount/:id', component: AccountDetailsComponent},
+  { path: 'usersMagda', component: ShowUsersFromMagdaComponent}
 ];
 
 @NgModule({
