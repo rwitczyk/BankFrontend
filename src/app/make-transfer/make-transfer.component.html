@@ -18,6 +18,11 @@
     </div>
 
     <div class="form-group">
+      <label for="toExternalNumberAccount">Przelew do zewnętrznego banku</label>
+      <input class="form-control" id="toExternalNumberAccount" required formControlName="toExternalNumberAccount">
+    </div>
+
+    <div class="form-group">
       <label for="balance">Kwota przelewu</label><br>
       <input class="form-control" id="balance" name="name" type="text" formControlName="balanceBeforeChangeCurrency">
       <div *ngIf="transferForm.get('balanceBeforeChangeCurrency').invalid && (transferForm.get('balanceBeforeChangeCurrency').dirty || transferForm.get('balanceBeforeChangeCurrency').touched)">
@@ -26,6 +31,10 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <label for="email">Czy chcesz dostać powiadomienie o przelewie?</label>
+      <input class="form-control" id="email" required formControlName="email" placeholder="Podaj email">
+    </div>
 
     <button type="submit" class="btn btn-success" (click)="createNewTransfer()">Wyślij przelew</button>
 

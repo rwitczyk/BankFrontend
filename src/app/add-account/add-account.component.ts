@@ -24,8 +24,12 @@ export class AddAccountComponent implements OnInit {
       this.bankAccount.name = nameOfAccount;
       this.bankAccount.balance = '0';
       this.bankAccount.currency = currency;
-      this.bankAccount.numberAccount = this.getRandomIntInclusive(1111, 9999);
+      this.bankAccount.numberAccount = '';
+      for (let i = 0; i < 26; i++) {
+        this.bankAccount.numberAccount += this.getRandomIntInclusive(1, 9).toString();
+      }
       this.addAccountService.addAccount(this.bankAccount);
+      console.log(this.bankAccount);
     }
     else{
       this.toastr.error('Źle wypełniony formularz');

@@ -33,7 +33,9 @@ export class MakeTransferComponent implements OnInit {
     this.transferForm = this.fb.group({
       balanceBeforeChangeCurrency: ['', [Validators.pattern('^[0-9]*([.][0-9]{1,2})?'), Validators.required]],
       fromNumberAccount: [''],
-      toNumberAccount: ['']
+      toNumberAccount: [''],
+      toExternalNumberAccount: [''],
+      email: ['']
     });
   }
 
