@@ -10,17 +10,22 @@
       </select>
     </div>
 
-    <div class="form-group">
-      <label for="toNumberAccount">Na numer konta</label>
-      <select class="form-control" id="toNumberAccount" required formControlName="toNumberAccount">
-        <option *ngFor="let number of listOfNumberAccounts" [value]="number">{{number}}</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="toExternalNumberAccount">Przelew do zewnętrznego banku</label>
-      <input class="form-control" id="toExternalNumberAccount" required formControlName="toExternalNumberAccount">
-    </div>
+    <mat-tab-group animationDuration="10ms">
+      <mat-tab label="Przelewy wewnętrzny"><br>
+        <div class="form-group">
+          <label for="toNumberAccount">Na numer konta</label>
+          <select class="form-control" id="toNumberAccount" required formControlName="toNumberAccount">
+            <option *ngFor="let number of listOfNumberAccounts" [value]="number">{{number}}</option>
+          </select>
+        </div>
+      </mat-tab>
+      <mat-tab label="Przelew zewnętrzny"><br>
+        <div class="form-group">
+          <label for="toExternalNumberAccount">Przelew do zewnętrznego banku</label>
+          <input class="form-control" id="toExternalNumberAccount" required formControlName="toExternalNumberAccount">
+        </div>
+      </mat-tab>
+    </mat-tab-group>
 
     <div class="form-group">
       <label for="balance">Kwota przelewu</label><br>

@@ -48,6 +48,11 @@ export class MakeTransferComponent implements OnInit {
         this.newTransfer = new Transfer();
         this.newTransfer.fromNumberAccount = this.transferForm.value.fromNumberAccount;
         this.newTransfer.toNumberAccount = this.transferForm.value.toNumberAccount;
+        this.newTransfer.transferToBank = 0;
+        if (this.newTransfer.toNumberAccount.length < 1) {
+          this.newTransfer.toNumberAccount = this.transferForm.value.toExternalNumberAccount;
+          this.newTransfer.transferToBank = 1;
+        }
         this.newTransfer.balanceAfterChangeCurrency = this.transferForm.value.balanceAfterChangeCurrency;
         this.newTransfer.balanceBeforeChangeCurrency = this.transferForm.value.balanceBeforeChangeCurrency;
         console.log(this.newTransfer);
