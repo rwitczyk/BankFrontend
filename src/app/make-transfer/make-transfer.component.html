@@ -39,6 +39,9 @@
     <div class="form-group">
       <label for="email">Czy chcesz dostać powiadomienie o przelewie?</label>
       <input class="form-control" id="email" required formControlName="email" placeholder="Podaj email">
+      <div *ngIf="transferForm.get('email').invalid && (transferForm.get('email').dirty || transferForm.get('email').touched)">
+        <div class="alert alert-danger">Wrong email</div>
+      </div>
     </div>
 
     <button type="submit" class="btn btn-success" (click)="createNewTransfer()">Wyślij przelew</button>

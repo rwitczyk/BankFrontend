@@ -17,7 +17,6 @@ export class ShowUsersFromMagdaComponent implements OnInit {
 
   ngOnInit() {
     this.getUsersFromMagdaService.getAllUsersFromMagdaApi().subscribe(value => {
-      console.log(value);
       this.usersMagda = value;
     });
   }

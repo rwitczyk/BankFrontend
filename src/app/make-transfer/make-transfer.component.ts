@@ -35,12 +35,13 @@ export class MakeTransferComponent implements OnInit {
       fromNumberAccount: [''],
       toNumberAccount: [''],
       toExternalNumberAccount: [''],
-      email: ['']
+      email: ['', Validators.email]
     });
   }
 
   createNewTransfer() {
-    if (this.transferForm.get('balanceBeforeChangeCurrency').hasError('pattern') || this.transferForm.get('balanceBeforeChangeCurrency').hasError('required')) {
+    if (this.transferForm.get('balanceBeforeChangeCurrency').hasError('pattern') ||
+      this.transferForm.get('balanceBeforeChangeCurrency').hasError('required') || this.transferForm.get('email').hasError('email')) {
       this.toastr.error('Źle wypełniony formularz');
     }
     else {
