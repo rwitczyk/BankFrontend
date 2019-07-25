@@ -11,7 +11,7 @@ export class CancelTransferService {
   constructor(private http: HttpClient, private toastr: ToastrService) {}
 
   cancelTransfer(transfer: Transfer) {
-    this.http.post('/api/transfers/cancel', transfer).subscribe(
+    this.http.post('https://bankrobloxback.herokuapp.com/transfers/cancel', transfer).subscribe(
       value => {this.toastr.success('Pomyślnie anulowano przelew'); } ,
       error => {this.toastr.error('Przelew juz został wykonany!'); });
   }

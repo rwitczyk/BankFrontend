@@ -11,7 +11,7 @@ export class CreateTransferService {
   constructor(private http: HttpClient, private toastr: ToastrService) {}
 
   createTransfer(transfer: Transfer) {
-    this.http.post('/api/transfer/new', transfer).subscribe(
+    this.http.post('https://bankrobloxback.herokuapp.com/transfer/new', transfer).subscribe(
       value => {this.toastr.success('Wykonano przelew'); } ,
       error => {this.toastr.error(error.error.message); });
   }

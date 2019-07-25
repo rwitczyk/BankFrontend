@@ -11,7 +11,7 @@ export class AddAccountService {
   constructor(private http: HttpClient, private toastr: ToastrService) {}
 
   addAccount(account: BankAccount) {
-    this.http.post('/api/accounts/add', account).subscribe(
+    this.http.post('https://bankrobloxback.herokuapp.com/accounts/add', account).subscribe(
       value => {
         this.toastr.success('Pomyślnie dodano konto');
       },
