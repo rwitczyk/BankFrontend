@@ -10,10 +10,10 @@ export class ListOfTransfersService {
   constructor(private http: HttpClient) {}
 
   getTransfersFromNumberAccount(numberAccount: string) {
-    return this.http.get<Transfer[]>('/api/transfers/from/' + numberAccount);
+    return this.http.get<Transfer[]>('https://bankrobloxback.herokuapp.com/transfers/from/' + numberAccount);
   }
 
   getTransfersToNumberAccount(numberAccount: string) {
-    return this.http.get<Transfer[]>('/api/transfers/to/' + numberAccount);
+    return this.http.get<Transfer[]>('https://bankrobloxback.herokuapp.com/transfers/to/' + numberAccount);
   }
 }

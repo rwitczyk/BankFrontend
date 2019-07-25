@@ -9,6 +9,6 @@ export class ListOfAccountsService {
   constructor(private http: HttpClient) {}
 
   getListOfAccounts() {
-    return this.http.get<BankAccount[]>('/api/accounts');
+    return this.http.get<BankAccount[]>('https://bankrobloxback.herokuapp.com/accounts');
   }
 }
