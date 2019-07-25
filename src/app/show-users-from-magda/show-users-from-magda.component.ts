@@ -9,8 +9,8 @@ import {UserMagda} from '../Models/UserMagda';
 })
 export class ShowUsersFromMagdaComponent implements OnInit {
 
-  private usersMagda: UserMagda[];
-  private headElements = ['id', 'Numer konta', 'Saldo', 'Waluta', 'Właściciel'];
+  usersMagda: UserMagda[];
+  headElements = ['id', 'Numer konta', 'Saldo', 'Waluta', 'Właściciel'];
 
   constructor(private getUsersFromMagdaService: GetUsersFromMagdaService) {
   }

@@ -12,8 +12,8 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class EditAccountComponent implements OnInit {
 
-  private id: string;
-  private account: BankAccount;
+  id: string;
+  account: BankAccount;
 
   constructor(private route: ActivatedRoute, private editAccountService: EditAccountService,
               private accountDetailsService: AccountDetailsService, private toastr: ToastrService) {

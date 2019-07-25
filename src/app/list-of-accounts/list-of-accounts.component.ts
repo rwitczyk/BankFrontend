@@ -15,7 +15,7 @@ import {DialogComponent} from './dialog/dialog.component';
 })
 export class ListOfAccountsComponent implements OnInit {
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
-  private accounts: BankAccount[];
+  accounts: BankAccount[];
   previous: string;
   searchText = '';
   headElements = ['Saldo', 'Waluta', 'Nazwa konta', 'Numer konta', 'Edytuj', 'Usuń'];

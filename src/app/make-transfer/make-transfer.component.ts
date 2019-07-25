@@ -12,10 +12,10 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./make-transfer.component.css']
 })
 export class MakeTransferComponent implements OnInit {
-  private newTransfer: Transfer;
-  private accounts: BankAccount[];
-  private listOfNumberAccounts = [];
-  private transferForm: FormGroup;
+  newTransfer: Transfer;
+  accounts: BankAccount[];
+  listOfNumberAccounts = [];
+  transferForm: FormGroup;
 
   constructor(private createTransferService: CreateTransferService, private listOfAccountsService: ListOfAccountsService,
               private toastr: ToastrService, private fb: FormBuilder) {

@@ -10,8 +10,8 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class AddAccountComponent implements OnInit {
 
-  private bankAccount: BankAccount;
-  private listOfCurrencies = ['PLN', 'USD', 'GBP', 'EUR', 'CZK', 'CHF', 'ISK'];
+  bankAccount: BankAccount;
+  listOfCurrencies = ['PLN', 'USD', 'GBP', 'EUR', 'CZK', 'CHF', 'ISK'];
   constructor(private addAccountService: AddAccountService, private toastr: ToastrService) { }
 
   ngOnInit() {

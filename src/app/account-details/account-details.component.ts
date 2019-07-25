@@ -12,10 +12,10 @@ import {CancelTransferService} from '../Services/Transfer/cancel-transfer.servic
   styleUrls: ['./account-details.component.css']
 })
 export class AccountDetailsComponent implements OnInit {
-  private account: BankAccount;
-  private transfersFromNumberAccount: Transfer[];
-  private transfersToNumberAccount: Transfer[];
-  private id: string;
+  account: BankAccount;
+  transfersFromNumberAccount: Transfer[];
+  transfersToNumberAccount: Transfer[];
+  id: string;
   headElementsFrom = ['Na numer konta', 'Kwota przelewu', 'Waluta',
     'Data utworzenia przelewu', 'Data zaksiegowania przelewu', 'Status przelewu', ''];
   headElementsTo = ['Z numeru konta', 'Kwota przelewu', 'Waluta',
