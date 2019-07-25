@@ -14,7 +14,8 @@ export class BasicAuthInterceptor implements HttpInterceptor {
     request = request.clone({
       setHeaders: {
         Authorization: 'Basic ' + btoa(this.login + ':' + this.password),
-        AccessControlAllowMethods: 'POST, GET, OPTIONS, PUT, DELETE'
+        AccessControlAllowMethods: 'POST, GET, OPTIONS, PUT, DELETE',
+        AccessControlAllowOrigin: 'https://bankrobloxback.herokuapp.com/'
       }
     });
 
