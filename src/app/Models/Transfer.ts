@@ -5,6 +5,7 @@ balanceAfterChangeCurrency: string;
 createTransferDate: string;
 transferToBank: number;
 currencyDestinationAccount: string;
+email: string;
 currencyFromAccount: string;
 executeTransferDate: string;
 fromNumberAccount: string;

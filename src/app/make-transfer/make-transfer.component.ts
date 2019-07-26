@@ -50,6 +50,7 @@ export class MakeTransferComponent implements OnInit {
         this.newTransfer.fromNumberAccount = this.transferForm.value.fromNumberAccount;
         this.newTransfer.toNumberAccount = this.transferForm.value.toNumberAccount;
         this.newTransfer.transferToBank = 0;
+        this.newTransfer.email = this.transferForm.value.email;
         if (this.newTransfer.toNumberAccount.length < 1) {
           this.newTransfer.toNumberAccount = this.transferForm.value.toExternalNumberAccount;
           this.newTransfer.transferToBank = 1;
