@@ -10,7 +10,7 @@ export class GetUsersFromMagdaService {
   constructor(private http: HttpClient) { }
 
   getAllUsersFromMagdaApi() {
-    return this.http.get<UserMagda[]>('https://bankrobloxback.herokuapp.com/accounts/magda');
+    return this.http.get<UserMagda[]>('https://bankrobloxback.herokuapp.com/api/accounts/magda');
   }
 
 }

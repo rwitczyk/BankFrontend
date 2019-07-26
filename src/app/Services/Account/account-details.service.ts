@@ -10,6 +10,6 @@ export class AccountDetailsService {
   constructor(private http: HttpClient) {}
 
   getDetails(id: string) {
-    return this.http.get<BankAccount>('https://bankrobloxback.herokuapp.com/accounts/id/' + id);
+    return this.http.get<BankAccount>('https://bankrobloxback.herokuapp.com/api/accounts/id/' + id);
   }
 }
